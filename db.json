@@ -12,8 +12,8 @@
       "id": 1
     },
     {
-      "name": "Projeto Teste 2",
-      "budget": "19000",
+      "name": "Projeto Atualizado 3",
+      "budget": "12000",
       "category": {
         "id": "1",
         "name": "Infra"
