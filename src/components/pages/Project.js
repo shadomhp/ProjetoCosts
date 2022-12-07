@@ -14,6 +14,7 @@ export default function Project() {
 
     const [project, setProject] = useState([]);
     const [showProjectForm, setShowProjectForm] = useState(false);
+    const [showServiceForm, setShowServiceForm] = useState(false);
     const [message, setMessage] = useState();
     const [type, setType] = useState()
 
@@ -34,6 +35,7 @@ export default function Project() {
     }, [id])
 
     function editPost(project) {
+        setMessage('');
         // budget validation
         if (project.budget < project.cost) {
             setMessage('O orçamento não pode ser menor que o custo do projeto!');
@@ -62,6 +64,9 @@ export default function Project() {
 
     function toggleProjectForm() {
         setShowProjectForm(!showProjectForm);
+    }
+    function toggleServiceForm() {
+        setShowServiceForm(!showServiceForm);
     }
 
     return (
@@ -99,6 +104,25 @@ export default function Project() {
 
                                 )}
                             </div>
+                            <div className={styles.service_form_container}>
+                                <h2>Adicione um serviço:</h2>
+                                <button className={styles.btn} onClick={toggleServiceForm}>
+                                    {!showServiceForm ? 'Adicionar Serviço' : 'Fechar'}
+                                </button>
+                                <div className={styles.project_info}>
+                                    {
+                                        showServiceForm && (
+                                            <div>
+                                                Formulario do serviço
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                            </div>
+                            <h2>Serviços</h2>
+                            <Container customClass="start">
+                                <p>Itens de serviço</p>
+                            </Container>
                         </Container>
                     </div>
                 ) : (
